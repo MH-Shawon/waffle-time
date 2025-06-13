@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import OurMenu from "@/components/Menu/OurMenu";
 import PopularItems from "@/components/PopularItems";
 
+
 export default function Home() {
   return (
     <main className=" bg-[#FFFFFF]">
@@ -10,6 +11,7 @@ export default function Home() {
       <Hero />
 
       <PopularItems />
+      
 
       <OurMenu />
     </main>

@@ -145,7 +145,7 @@ export default function OurMenu() {
   );
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white -mt-20">
       <div
         ref={sectionRef}
         className="container mx-auto px-4 py-12 relative z-10"

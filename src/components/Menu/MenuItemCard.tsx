@@ -26,7 +26,7 @@ export default function MenuItemCard({
 }: MenuItemCardProps) {
   return (
     <motion.div
-      className="relative w-[280px] h-[380px] rounded-3xl border border-red-500 p-6 bg-white shadow-sm flex flex-col hover:shadow-lg transition-shadow"
+      className="relative w-[280px] h-[380px] rounded-3xl border border-[#EB292A] p-6 bg-white shadow-sm flex flex-col hover:shadow-lg transition-shadow"
       initial={{ opacity: 0, x: 100, scale: 0.9 }}
       animate={
         inView
