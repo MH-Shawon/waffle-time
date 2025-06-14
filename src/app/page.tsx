@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import OurMenu from "@/components/Menu/OurMenu";
 import PopularItems from "@/components/PopularItems";
+import Branches from "@/components/Branches";
 
 
 export default function Home() {
@@ -11,9 +12,9 @@ export default function Home() {
       <Hero />
 
       <PopularItems />
-      
 
       <OurMenu />
+      <Branches />
     </main>
   );
 }
