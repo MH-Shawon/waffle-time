@@ -37,7 +37,7 @@ export default function MenuItemCard({
         type: "spring",
         stiffness: 120,
         damping: 20,
-        delay: inView ? .2 + index * 0.1 : 0,
+        delay: inView ? 0.2 + index * 0.1 : 0,
       }}
       whileHover={{
         y: -8,

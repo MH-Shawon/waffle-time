@@ -17,7 +17,7 @@ const Hero = () => {
                   type: "spring",
                   stiffness: 120,
                   damping: 20,
-                  delay: 0.3,
+                  delay: 1.8, // Changed from 0.3
                 }}
                 className="relative group cursor-pointer"
               >
@@ -37,7 +37,7 @@ const Hero = () => {
                       initial={{ opacity: 0, y: -30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{
-                        delay: 0.6,
+                        delay: 2.1, // Changed from 0.6
                         type: "spring",
                         stiffness: 100,
                       }}
@@ -58,7 +58,7 @@ const Hero = () => {
                         type: "spring",
                         stiffness: 200,
                         damping: 15,
-                        delay: 0.9,
+                        delay: 2.4, // Changed from 0.9
                       }}
                       whileHover={{ rotate: 5, scale: 1.1 }}
                       className="relative mx-auto w-52 h-52"
@@ -121,7 +121,7 @@ const Hero = () => {
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{
-                        delay: 1.2,
+                        delay: 2.7, // Changed from 1.2
                         type: "spring",
                         stiffness: 100,
                       }}
@@ -148,7 +148,7 @@ const Hero = () => {
                   type: "spring",
                   stiffness: 100,
                   damping: 20,
-                  delay: 0.2,
+                  delay: 1.7, // Changed from 0.2
                 }}
                 className="space-y-4 text-right font-denk text-[#F6AF03]"
               >
@@ -165,7 +165,7 @@ const Hero = () => {
                   className="text-4xl lg:text-7xl font-bold leading-none tracking-tight"
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8, type: "spring", stiffness: 120 }}
+                  transition={{ delay: 2.3, type: "spring", stiffness: 120 }} // Changed from 0.8
                 >
                   <span className="text-[#EB292A]">Every</span>{" "}
                   <span className="">Crunch</span>
@@ -180,7 +180,7 @@ const Hero = () => {
                   type: "spring",
                   stiffness: 100,
                   damping: 20,
-                  delay: 1.0,
+                  delay: 2.5, // Changed from 1.0
                 }}
                 className="space-y-4"
               >
@@ -192,7 +192,7 @@ const Hero = () => {
                 <motion.button
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1.4, type: "spring", stiffness: 150 }}
+                  transition={{ delay: 2.9, type: "spring", stiffness: 150 }} // Changed from 1.4
                   whileHover={{
                     scale: 1.05,
                     borderColor: "#EB292A",

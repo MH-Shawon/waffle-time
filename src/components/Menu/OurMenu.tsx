@@ -1,18 +1,12 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { ChevronRight } from "lucide-react";
 import { motion, useInView } from "framer-motion";
+import { ChevronRight } from "lucide-react";
 import MenuItemCard from "./MenuItemCard";
 
 
-// Define Category type
-interface Category {
-  id: string;
-  name: string;
-}
-
-// Define MenuItem type directly in this file to avoid import issues
+// Define the MenuItem and Category types
 interface MenuItem {
   id: string;
   name: string;
@@ -22,7 +16,11 @@ interface MenuItem {
   category: string;
 }
 
-// Menu data
+interface Category {
+  id: string;
+  name: string;
+}
+
 const categories: Category[] = [
   {
     id: "nutella",
@@ -135,22 +133,36 @@ const menuItems: MenuItem[] = [
   },
 ];
 
-const  OurMenu=()=> {
+const OurMenu =()=> {
   const [activeCategory, setActiveCategory] = useState("nutella");
+  const [startIndex, setStartIndex] = useState(0);
   const sectionRef = useRef(null);
+
   // Animations trigger every time the section comes into view
   const isInView = useInView(sectionRef, { amount: 0.3 });
-
-  const scrollRight = () => {
-    const container = document.getElementById("menu-items");
-    if (container) {
-      container.scrollBy({ left: 300, behavior: "smooth" });
-    }
-  };
 
   const filteredItems = menuItems.filter(
     (item) => item.category === activeCategory
   );
+
+  // Reset visible items when category changes
+  const handleCategoryChange = (categoryId: string) => {
+    setActiveCategory(categoryId);
+    setStartIndex(0);
+  };
+
+  const showNextItem = () => {
+    setStartIndex((prev) => {
+      const maxStart = filteredItems.length - 4;
+      return Math.min(prev + 1, maxStart);
+    });
+  };
+
+  // Get items to display based on visibleItems count
+  const itemsToDisplay = filteredItems.slice(startIndex, startIndex + 4);
+
+  // Check if there are more items to show
+  const hasMoreItems = startIndex < filteredItems.length - 4;
 
   return (
     <div className="min-h-screen bg-white -mt-20">
@@ -217,7 +229,7 @@ const  OurMenu=()=> {
             }}
           >
             We serve the most delicious food at every branch. Explore our menu
-            and  indulge in the crunch you won’t want to miss!
+            and indulge in the crunch you won't want to miss!
           </motion.p>
         </div>
 
@@ -226,7 +238,7 @@ const  OurMenu=()=> {
           {categories.map((category, index) => (
             <motion.button
               key={category.id}
-              onClick={() => setActiveCategory(category.id)}
+              onClick={() => handleCategoryChange(category.id)}
               className={`px-8 py-3 rounded-md transition-all text-xl font-sans font-bold ${
                 activeCategory === category.id
                   ? "bg-primary text-white"
@@ -269,21 +281,23 @@ const  OurMenu=()=> {
 
         {/* Menu items */}
         <div className="relative">
-          <div
-            id="menu-items"
-            className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scrollbar-hide"
-          >
-            {filteredItems.map((item, index) => (
-              <div key={item.id} className="snap-start">
-                <MenuItemCard item={item} index={index} inView={isInView} />
-              </div>
+          <div className="flex justify-center gap-6 pb-8">
+            {itemsToDisplay.map((item, index) => (
+              <MenuItemCard
+                key={item.id}
+                item={item}
+                index={index}
+                inView={isInView}
+              />
             ))}
           </div>
-          {filteredItems.length > 3 && (
+
+          {/* Arrow button - positioned on the right side */}
+          {filteredItems.length > 4 && hasMoreItems && (
             <motion.button
-              onClick={scrollRight}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow-lg p-2 hidden md:block hover:shadow-xl transition-shadow"
-              aria-label="Scroll right"
+              onClick={showNextItem}
+              className="absolute -right-5 top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow-lg p-2 hover:shadow-xl transition-shadow"
+              aria-label="Show next item"
               initial={{ opacity: 0, scale: 0, rotate: -90 }}
               animate={
                 isInView
@@ -294,7 +308,7 @@ const  OurMenu=()=> {
                 type: "spring",
                 stiffness: 200,
                 damping: 20,
-                delay: isInView ? 2.5 : 0,
+                delay: isInView ? .5 : 0,
               }}
               whileHover={{
                 scale: 1.1,
@@ -314,7 +328,7 @@ const  OurMenu=()=> {
                 },
               }}
             >
-              <ChevronRight className="h-6 w-6 text-gray-500 " />
+              <ChevronRight className="h-6 w-6 text-primary" />
             </motion.button>
           )}
         </div>
