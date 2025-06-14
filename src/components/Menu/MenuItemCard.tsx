@@ -26,7 +26,7 @@ export default function MenuItemCard({
 }: MenuItemCardProps) {
   return (
     <motion.div
-      className="relative w-[280px] h-[380px] rounded-3xl border border-[#EB292A] p-6 bg-white shadow-sm flex flex-col hover:shadow-lg transition-shadow"
+      className="relative w-[280px] h-[380px] rounded-tr-lg rounded-bl-lg  rounded-tl-4xl rounded-br-4xl  border border-primary p-6 bg-white shadow-sm flex flex-col hover:shadow-lg transition-shadow mt-10"
       initial={{ opacity: 0, x: 100, scale: 0.9 }}
       animate={
         inView
@@ -37,11 +37,11 @@ export default function MenuItemCard({
         type: "spring",
         stiffness: 120,
         damping: 20,
-        delay: inView ? 1.2 + index * 0.1 : 0,
+        delay: inView ? .2 + index * 0.1 : 0,
       }}
       whileHover={{
         y: -8,
-        scale: 1.02,
+        scale: 1,
         boxShadow: "0 20px 40px -10px rgba(0, 0, 0, 0.15)",
         transition: {
           type: "spring",
@@ -52,7 +52,7 @@ export default function MenuItemCard({
     >
       {/* Price tag */}
       <motion.div
-        className="absolute -right-3 -top-3 flex h-14 w-14 items-center justify-center rounded-full bg-red-500 text-white font-bold text-xl shadow-md"
+        className="absolute -right-3 -top-3 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white font-bai font-medium text-xl shadow-md"
         initial={{ scale: 0, rotate: -180 }}
         animate={inView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }}
         transition={{
@@ -95,7 +95,7 @@ export default function MenuItemCard({
 
       {/* Title */}
       <motion.h3
-        className="text-center text-2xl font-bold uppercase tracking-wide mb-3 text-gray-800"
+        className="text-center text-2xl  font-denk tracking-wide mb-3 text-[#101A24]"
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{

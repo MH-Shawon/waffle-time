@@ -49,7 +49,7 @@ const menuItems: MenuItem[] = [
     description:
       "Crepe filled with Nutella, topped with strawberries and banana slices",
     price: 12,
-    image: "/placeholder.svg?height=150&width=200",
+    image: "/assets/Images/menuItem/item1.png",
     category: "nutella",
   },
   {
@@ -57,7 +57,7 @@ const menuItems: MenuItem[] = [
     name: "Nutella Heaven",
     description: "Warm waffle topped with Nutella, whipped cream and hazelnuts",
     price: 14,
-    image: "/placeholder.svg?height=150&width=200",
+    image: "/assets/Images/menuItem/item2.png",
     category: "nutella",
   },
   {
@@ -66,7 +66,7 @@ const menuItems: MenuItem[] = [
     description:
       "Crepe filled with Nutella and banana, topped with vanilla ice cream",
     price: 13,
-    image: "/placeholder.svg?height=150&width=200",
+    image: "/assets/Images/menuItem/item3.png",
     category: "nutella",
   },
   {
@@ -74,7 +74,15 @@ const menuItems: MenuItem[] = [
     name: "Nutella Bliss",
     description: "Warm brownie topped with Nutella and vanilla ice cream",
     price: 15,
-    image: "/placeholder.svg?height=150&width=200",
+    image: "/assets/Images/menuItem/item4.png",
+    category: "nutella",
+  },
+  {
+    id: "nutella-delight",
+    name: "Nutella Delight",
+    description: "Warm waffle topped with Nutella, whipped cream and hazelnuts",
+    price: 14,
+    image: "/assets/Images/menuItem/item1.png",
     category: "nutella",
   },
   {
@@ -82,7 +90,7 @@ const menuItems: MenuItem[] = [
     name: "Classic Crepe",
     description: "Traditional crepe with butter and sugar",
     price: 8,
-    image: "/placeholder.svg?height=150&width=200",
+    image: "/assets/Images/menuItem/item2.png",
     category: "crepes",
   },
   {
@@ -90,7 +98,7 @@ const menuItems: MenuItem[] = [
     name: "Strawberry Crepe",
     description: "Crepe filled with fresh strawberries and whipped cream",
     price: 10,
-    image: "/placeholder.svg?height=150&width=200",
+    image: "/assets/Images/menuItem/item3.png",
     category: "crepes",
   },
   {
@@ -98,7 +106,7 @@ const menuItems: MenuItem[] = [
     name: "Belgian Waffle",
     description: "Classic Belgian waffle with maple syrup and butter",
     price: 9,
-    image: "/placeholder.svg?height=150&width=200",
+    image: "/assets/Images/menuItem/item4.png",
     category: "waffles",
   },
   {
@@ -106,7 +114,7 @@ const menuItems: MenuItem[] = [
     name: "Chocolate Waffle",
     description: "Belgian waffle with chocolate chips and chocolate sauce",
     price: 11,
-    image: "/placeholder.svg?height=150&width=200",
+    image: "/assets/Images/menuItem/item1.png",
     category: "waffles",
   },
   {
@@ -114,7 +122,7 @@ const menuItems: MenuItem[] = [
     name: "Iced Coffee",
     description: "Cold brewed coffee served over ice",
     price: 5,
-    image: "/placeholder.svg?height=150&width=200",
+    image: "/assets/Images/menuItem/item2.png",
     category: "drinks",
   },
   {
@@ -122,12 +130,12 @@ const menuItems: MenuItem[] = [
     name: "Milkshake",
     description: "Creamy vanilla milkshake with whipped cream",
     price: 7,
-    image: "/placeholder.svg?height=150&width=200",
+    image: "/assets/Images/menuItem/item3.png",
     category: "drinks",
   },
 ];
 
-export default function OurMenu() {
+const  OurMenu=()=> {
   const [activeCategory, setActiveCategory] = useState("nutella");
   const sectionRef = useRef(null);
   // Animations trigger every time the section comes into view
@@ -153,7 +161,7 @@ export default function OurMenu() {
         {/* Header */}
         <div className="text-center mb-10">
           <motion.h1
-            className="text-6xl font-bold mb-4 inline-block"
+            className="text-7xl font-bold font-denk mb-4 inline-block"
             initial={{ opacity: 0, y: 100, scale: 0.8 }}
             animate={
               isInView
@@ -168,7 +176,7 @@ export default function OurMenu() {
             }}
           >
             <motion.span
-              className="text-red-600"
+              className="text-[#EB292A]"
               initial={{ opacity: 0, x: -50 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
               transition={{
@@ -196,7 +204,7 @@ export default function OurMenu() {
           </motion.h1>
 
           <motion.p
-            className="max-w-md mx-auto text-gray-600"
+            className="max-w-lg mx-auto text-[#000000]"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={
               isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }
@@ -209,7 +217,7 @@ export default function OurMenu() {
             }}
           >
             We serve the most delicious food at every branch. Explore our menu
-            and indulge in the crunch you won't want to miss!
+            and  indulge in the crunch you won’t want to miss!
           </motion.p>
         </div>
 
@@ -219,10 +227,10 @@ export default function OurMenu() {
             <motion.button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-8 py-3 rounded-md transition-all ${
+              className={`px-8 py-3 rounded-md transition-all text-xl font-sans font-bold ${
                 activeCategory === category.id
-                  ? "bg-red-500 text-white"
-                  : "bg-white text-red-500 border border-red-500 hover:bg-red-50"
+                  ? "bg-primary text-white"
+                  : "bg-white text-primary border border-primary hover:bg-red-50"
               }`}
               initial={{ opacity: 0, y: 30, scale: 0.8 }}
               animate={
@@ -306,7 +314,7 @@ export default function OurMenu() {
                 },
               }}
             >
-              <ChevronRight className="h-6 w-6 text-gray-500" />
+              <ChevronRight className="h-6 w-6 text-gray-500 " />
             </motion.button>
           )}
         </div>
@@ -314,3 +322,4 @@ export default function OurMenu() {
     </div>
   );
 }
+export default OurMenu;
