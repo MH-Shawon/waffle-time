@@ -139,7 +139,7 @@ const Hero = () => {
             </div>
 
             {/* Right side - Text Content */}
-            <div className="space-y-10 order-1 lg:order-2 lg:pr-24 text-right">
+            <div className="space-y-6 sm:space-y-8 lg:space-y-6 order-1 lg:order-2 text-center lg:text-right flex flex-col items-center lg:items-end lg:px-16">
               {/* Main Headlines */}
               <motion.div
                 initial={{ opacity: 0, x: 100 }}
@@ -150,7 +150,7 @@ const Hero = () => {
                   damping: 20,
                   delay: 0.2,
                 }}
-                className="space-y-2 text-right font-denk text-[#F6AF03]"
+                className="space-y-4 text-right font-denk text-[#F6AF03]"
               >
                 <motion.h1
                   className="text-4xl lg:text-7xl font-bold leading-none tracking-tight text-[#F6AF03]"
@@ -182,11 +182,11 @@ const Hero = () => {
                   damping: 20,
                   delay: 1.0,
                 }}
-                className="space-y-8"
+                className="space-y-4"
               >
-                <motion.p className="text-[#2D2D2D]  leading-relaxed max-w-lg font-medium ml-auto text-right">
-                  We provide best Waffle in Bangladesh. Don't forgot to <br /> check
-                  your nearby Waffle Branch Location
+                <motion.p className="text-sm sm:text-base lg:text-lg text-[#2D2D2D] leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg font-medium text-center lg:text-right">
+                  We provide best Waffle in Bangladesh. Don't forgot to <br />{" "}
+                  check your nearby Waffle Branch Location
                 </motion.p>
 
                 <motion.button
